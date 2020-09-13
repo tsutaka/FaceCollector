@@ -1,4 +1,3 @@
-
 echo '**Delete resource group**'
 az group list
 az group delete --name AKSCluster --yes

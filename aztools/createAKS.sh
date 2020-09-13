@@ -1,6 +1,6 @@
 az login
 
-echo '**create ACR**'
+echo '**Create ACR**'
 ACR_NAME=FCACRRegistry
 echo $ACR_NAME
 
@@ -14,7 +14,7 @@ az group list
 az acr create -g $ACR_RES_GROUP -n $ACR_NAME --sku Standard -l japaneast
 az acr list
 
-echo '**build image**'
+echo '**Build image**'
 cd ~/FaceCollector
 az acr build --registry $ACR_NAME --image face-collector:v0.1 v0.1/
 az acr repository show-tags -n $ACR_NAME --repository face-collector
@@ -22,7 +22,7 @@ az acr repository show-tags -n $ACR_NAME --repository face-collector
 ACR_ID=$(az acr show -n $ACR_NAME --query id --output tsv)
 echo $ACR_ID
 
-echo '**create service principal**'
+echo '**Create service principal**'
 SP_NAME=fc-acr-service-principal
 echo $SP_NAME
 
@@ -33,7 +33,7 @@ APP_ID=$(az ad sp show --id http://$SP_NAME --query appId --output tsv)
 echo $APP_ID
 az ad sp show --id http://$SP_NAME
 
-echo '**create aks cluster resource group**'
+echo '**Create aks cluster resource group**'
 AKS_CLUSTER_NAME=AKSCluster
 echo $AKS_CLUSTER_NAME
 
@@ -43,7 +43,7 @@ echo $AKS_RES_GROUP
 az group create -g $AKS_RES_GROUP -l japaneast
 az group list
 
-echo '**create aks cluster**'
+echo '**Create aks cluster**'
 az aks create \
   --name $AKS_CLUSTER_NAME \
   --resource-group $AKS_RES_GROUP \
@@ -53,7 +53,7 @@ az aks create \
   --service-principal $APP_ID \
   --client-secret $SP_PASSWD
 
-echo '**get-credentials**'
+echo '**Get credentials**'
 az aks get-credentials \
   --admin \
   --resource-group $AKS_RES_GROUP \
