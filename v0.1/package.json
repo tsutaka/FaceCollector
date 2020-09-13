@@ -1,5 +1,6 @@
 ﻿{
   "name": "server",
+  "private" : true, 
   "version": "1.0.0",
   "description": "api server",
   "main": "\\src\\server.js",
@@ -7,6 +8,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {},
+  "repository": "https://github.com/tsutaka/FaceCollector", 
   "scripts": {
     "test": "ps"
   },

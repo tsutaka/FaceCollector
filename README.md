@@ -9,3 +9,10 @@
 - `docker exec -it xxxx /bin/bash`
 - `docker ps`
 - `curl -i localhost:49160`
+
+## AKS環境の作成/削除
+- AKS環境の作成削除は下記のスクリプトで実施
+  - aztools/createAKS.sh
+    - AKSクラスター環境の作成
+  - aztools/deleteAKS.sh
+    - AKSクラスター環境の削除

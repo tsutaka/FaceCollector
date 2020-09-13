@@ -18,8 +18,8 @@ RUN npm install
 
 # Copy files required for the app to run
 COPY src/server.js $APP_PATH/src/
-COPY templates/ $APP_PATH/templates/
-COPY static/ $APP_PATH/static/
+# COPY templates/ $APP_PATH/templates/
+# COPY static/ $APP_PATH/static/
 
 # Port number expose
 EXPOSE 80
