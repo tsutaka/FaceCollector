@@ -1,0 +1,25 @@
+# Basic info
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+
+# Deployment spec
+spec:
+  replicas: 2   # レプリカ数
+  selector:
+    matchLabels:
+      app: server   # テンプレートの検索条件
+
+  # Pod templete
+  template:
+    metadata:
+      labels:
+        app: server
+        env: stage
+    spec:
+      containers:
+      - image: fcacrregistry.azurecr.io/face-collector:v0.1   # コンテナイメージの場所
+        name: server-container   # コンテナ名
+        ports:
+        - containerPort: 80   # ポート番号

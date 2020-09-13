@@ -1,0 +1,17 @@
+# Basic info
+apiVersion: v1
+kind: Service
+metadata:
+  name: webserver
+
+# Service spec
+spec:
+  type: LoadBalancer
+  ports:   # ポート番号
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  
+  # Pod label
+  selector:
+    app: server
