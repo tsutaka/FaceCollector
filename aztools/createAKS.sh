@@ -43,8 +43,19 @@ echo $AKS_RES_GROUP
 az group create -g $AKS_RES_GROUP -l japaneast
 az group list
 
-echo 'Create cluster by Azure portal'
-echo $APP_ID
-echo $SP_PASSWD
-echo 'Type following code'
-echo 'az aks get-credentials --admin --resource-group AKSCluster --name AKSCluster'
+echo '**create aks cluster**'
+az aks create \
+  --name $AKS_CLUSTER_NAME \
+  --resource-group $AKS_RES_GROUP \
+  --node-count 1 \
+  --node-vm-size Standard_B2s \
+  --generate-ssh-keys \
+  --service-principal $APP_ID \
+  --client-secret $SP_PASSWD
+
+echo '**get-credentials**'
+az aks get-credentials \
+  --admin \
+  --resource-group $AKS_RES_GROUP \
+  --name $AKS_CLUSTER_NAME \
+  --overwrite-existing
