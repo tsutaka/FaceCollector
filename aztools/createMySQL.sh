@@ -15,5 +15,3 @@ az mysql server create \
   --admin-user myadmin \
   --admin-password Myadm1n123! \
   --sku-name B_Gen5_1
-
-fcmysqlsvr.mysql.database.azure.com
