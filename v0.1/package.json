@@ -1,14 +1,15 @@
-﻿{
+{
   "name": "server",
-  "private" : true, 
+  "private": true,
   "version": "1.0.0",
   "description": "api server",
   "main": "\\src\\server.js",
   "dependencies": {
+    "@azure/cosmos": "^3.9.3",
     "express": "^4.17.1"
   },
   "devDependencies": {},
-  "repository": "https://github.com/tsutaka/FaceCollector", 
+  "repository": "https://github.com/tsutaka/FaceCollector",
   "scripts": {
     "test": "ps"
   },
