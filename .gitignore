@@ -131,3 +131,10 @@ dmypy.json
 # node_modules
 v0.1/node_modules
 v0.1/node_modules/*
+
+# sample movie
+*.mp4
+
+# config
+v0.1/src/config.js
+v0.1/src/config.ini
